@@ -1,0 +1,21 @@
+{
+  "name": "apify-jsdoc-template",
+  "version": "1.0.0",
+  "description": "JSDoc template for Apify js docs.",
+  "main": "publish.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Apifier/apify-jsdoc-template.git"
+  },
+  "author": "Jakub Drobnik <jakub.drobnik@apifier.com>",
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "homepage": "https://github.com/Apifier/apify-jsdoc-template"
+}
