@@ -1,0 +1,12 @@
+<?js
+var data = obj || {}; ?>
+
+<?js if (data.type && data.type.names) {?>
+<li>
+    <?js= this.partial('type.tmpl', data.type.names) ?>
+    <?js if (data.description) {
+    ?>
+        <?js= ' - '+description.replace("<ul>", "").replace("<li>", "").replace("</ul>", "").replace("</li>","").replace("</p>", "").replace("<p>", "") ?>
+    <?js } ?>
+</li>
+<?js } ?>
