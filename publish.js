@@ -509,7 +509,7 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                     nav.push(buildNavItem(linktoFn(item.longname, displayName)))
                 } else {
                     nav.push('<li>');
-                    nav.push(buildNavType(item.kind, linkToParentInNav(item.longname, displayName)))
+                    nav.push(buildNavType(item.kind, linkToParentInNav(displayName)))
                     nav.push('<ul>');
                 }
 
@@ -817,7 +817,7 @@ exports.publish = function(taffyData, opts, tutorials) {
   Object.keys(helper.longnameToUrl).forEach(function(longname) {
     var myModules = helper.find(modules, {longname: longname});
     if (myModules.length) {
-      generate('Module: ' + myModules[0].name, myModules, helper.longnameToUrl[longname]);
+      generate('' + myModules[0].name, myModules, helper.longnameToUrl[longname]);
     }
 
     var myClasses = helper.find(classes, {longname: longname});
