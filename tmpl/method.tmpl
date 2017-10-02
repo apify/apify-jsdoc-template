@@ -9,7 +9,7 @@ var self = this;
     <h2>Constructor</h2>
     <?js } ?>
 
-    <h4><?js= data.attribs + (kind === 'class' ? 'new ' : '') +
+    <h4><?js= (kind === 'class' ? 'new ' : '') +
     name + (data.signature || '') ?></h4>
 
     <?js if (data.summary) { ?>
