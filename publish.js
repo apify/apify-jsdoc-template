@@ -122,7 +122,7 @@ function linkToParentInNav(config){
         return htmlsafe(longname);
     } else {
         var link = allLinks[longname];
-        return '<a href="#' + link + '">' + htmlsafe(name) + '<i class="material-icons">expand_more</i></a>';
+        return '<a href="#' + link + '">' + htmlsafe(name) + '</a>';
     }
 }
 
@@ -443,7 +443,6 @@ function buildNavHeading (content) {
     return [
         '<a href="#'+content+'">',
         content,
-        '<i class="material-icons">expand_more</i>'+
         '</a>'
     ].join('')
 }
