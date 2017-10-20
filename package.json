@@ -1,6 +1,6 @@
 {
   "name": "apify-jsdoc-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JSDoc template for Apify js docs.",
   "main": "publish.js",
   "scripts": {
