@@ -512,6 +512,15 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
                     nav.push('<ul>');
                 }
 
+                if (members.length) {
+                    members.forEach(function(member, i) {
+                        if (member.inherited && conf.showInheritedInNav === false) {
+                            return
+                        }
+                        nav.push(buildNavItem(buildNavType(member.kind, linkToChildMedhodInNav(member.longname, member))))
+                    })
+                }
+
                 if (methods.length) {
                     methods.forEach(function(method, i) {
                         if (method.inherited && conf.showInheritedInNav === false) {
