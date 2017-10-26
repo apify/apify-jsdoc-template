@@ -1,7 +1,6 @@
 <?js
     var self = this;
     var isGlobalPage;
-
     docs.forEach(function(doc, i) {
 ?>
 
@@ -21,8 +20,10 @@
 <?js } else { ?>
     <div id="<?js= title ?>">
 <?js } ?>
-<header">
-    <?js if (!doc.longname || doc.kind !== 'module') { ?>
+<header>
+    <?js if (doc.kind === 'module' && doc.modules && pckg) { ?>
+        <h1><?js= pckg.description ?> <?js= pckg.version ?>  <a href="<?js= pckg.homepage ?>" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a></h1>
+    <?js } else if (!doc.longname || doc.kind !== 'module') { ?>
         <h2><?js if (doc.ancestors && doc.ancestors.length) { ?>
             <span class="ancestors"><?js= doc.ancestors.join('') ?></span>
         <?js } ?>
@@ -50,7 +51,6 @@
         <?js if (doc.description) { ?>
             <div class="description"><?js= doc.description ?></div>
         <?js } ?>
-
         <?js doc.modules.forEach(function(module) { ?>
             <?js= self.partial('method.tmpl', module) ?>
         <?js }) ?>

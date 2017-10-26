@@ -22,6 +22,7 @@ var hasOwnProp = Object.prototype.hasOwnProperty;
 
 var data;
 var view;
+var pckg;
 
 var allLinks = {
   'Global': 'Global',
@@ -347,8 +348,9 @@ function generate(title, docs, filename, resolveLinks) {
   resolveLinks = resolveLinks === false ? false : true;
 
   var docData = {
-    title: title,
-    docs: docs
+      title: title,
+      docs: docs,
+      pckg: pckg
   };
 
   var html = view.render('container.tmpl', docData);
@@ -810,7 +812,7 @@ exports.publish = function(taffyData, opts, tutorials) {
   // index page displays information from package.json and lists files
   var files = find({kind: 'file'});
   var packages = find({kind: 'package'});
-  var pckg = packages[0] || {};
+  pckg = packages[0] || {};
 
   generate('Home', packages, indexUrl);
 
