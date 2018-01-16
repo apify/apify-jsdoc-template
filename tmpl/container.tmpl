@@ -24,6 +24,9 @@
     <?js if (doc.kind === 'module' && doc.modules && pckg) { ?>
         <h1><?js= pckg.description ?> <?js= pckg.version ?>  <a href="<?js= pckg.homepage ?>" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a></h1>
     <?js } else if (!doc.longname || doc.kind !== 'module') { ?>
+        <?js if (doc.kind === 'class' && pckg.description) { ?>
+          <h1><?js= pckg.description ?> <?js= pckg.version ?>  <a href="<?js= pckg.homepage ?>" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a></h1>
+        <?js } ?>
         <h2><?js if (doc.ancestors && doc.ancestors.length) { ?>
             <span class="ancestors"><?js= doc.ancestors.join('') ?></span>
         <?js } ?>
