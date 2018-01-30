@@ -20,23 +20,26 @@
 <?js } else { ?>
     <div id="<?js= title ?>">
 <?js } ?>
+
+<?js=
+    (doc.tags || [])
+        .filter(tag => tag.originalTitle === 'prefix')
+        .map(tag => tag.value)
+        .join('')
+?>
+
+
 <header>
     <?js if (doc.kind === 'module' && doc.modules && pckg) { ?>
         <h1><?js= pckg.description ?> <?js= pckg.version ?>  <a href="<?js= pckg.homepage ?>" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a></h1>
     <?js } else if (!doc.longname || doc.kind !== 'module') { ?>
-        <?js
-            // Sorry for this guys but I needed to have a way how to override header tag level to H1 for apify-client.
-            var hasDisplayAsH1Tag = (doc.tags || []).filter(tag => tag.originalTitle === 'displayAsH1').length !== 0;
-            var tag = hasDisplayAsH1Tag  ? 'h1' : 'h2';
-        ?>
-
-        <<?js= tag ?>><?js if (doc.ancestors && doc.ancestors.length) { ?>
+        <h2><?js if (doc.ancestors && doc.ancestors.length) { ?>
             <span class="ancestors"><?js= doc.ancestors.join('') ?></span>
         <?js } ?>
         <?js= doc.longname ?>
         <?js if (doc.variation) { ?>
             <sup class="variation"><?js= doc.variation ?></sup>
-        <?js } ?></<?js= tag ?>>
+        <?js } ?></h2>
         <?js if (doc.classdesc) { ?>
             <div class="class-description"><?js= doc.classdesc ?></div>
         <?js } ?>
