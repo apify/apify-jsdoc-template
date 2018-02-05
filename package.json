@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Apifier/apify-jsdoc-template.git"
+    "url": "https://github.com/apifytech/apify-jsdoc-template.git"
   },
-  "author": "Jakub Drobnik <jakub.drobnik@apifier.com>",
+  "author": "Jakub Drobnik <jakub.drobnik@apify.com>",
   "licenses": [
     {
       "type": "Apache-2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   ],
-  "homepage": "https://github.com/Apifier/apify-jsdoc-template"
+  "homepage": "https://github.com/apifytech/apify-jsdoc-template"
 }
