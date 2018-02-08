@@ -38,7 +38,7 @@ var otherApiHtmlData = [];
 function updateOutputFileContent(html, title, filename){
   var trimHtml = html.replace(/(\s|\t)+(\n)+(\s|\t)+/g, '\n').trim();
 
-  if(title.match(/home/i)){
+  if(title.match(/home/i) || title === 'Apify'){
     homeHtmlData.push(trimHtml);
   } else if(title.match(/^class/i)){
     classHtmlData.push(trimHtml);
@@ -573,14 +573,15 @@ function buildNav(members) {
 
     //nav.push(buildNavLink('home', '<a href="index.html">Home</a>'))
     nav.push('<ul>')
+    nav = nav.concat(buildMemberNav(members.modules, "Modules", {}, linkTo))
     nav = nav.concat(buildMemberNav(members.tutorials, "Tutorials", seenTutorials, linktoTutorial))
     nav = nav.concat(buildMemberNav(members.classes, "Classes", seen, linkTo))
-    nav = nav.concat(buildMemberNav(members.modules, "Modules", {}, linkTo))
     nav = nav.concat(buildMemberNav(members.externals, "Externals", seen, linktoExternal))
     nav = nav.concat(buildMemberNav(members.events, "Events", seen, linkTo))
     nav = nav.concat(buildMemberNav(members.namespaces, "Namespaces", seen, linkTo))
     nav = nav.concat(buildMemberNav(members.mixins, "Mixins", seen, linkTo))
     nav = nav.concat(buildMemberNav(members.interfaces, "Interfaces", seen, linkTo))
+
     if (members.globals.length) {
         nav.push('<li>');
         nav.push(linkToParentInNav('Globals', 'global'));
